@@ -209,9 +209,16 @@ if ( ! function_exists( 'nibble_core_get_sign_in_buttons' ) ):
 		?>
 		<?php echo nibble_core_login_form_modal( $args ); ?>
 
-		<a href="#" class="btn btn-secondary">
-			<?php esc_html_e('Register', 'nibble-core'); ?>
-		</a>
+		<?php if ( get_option( 'users_can_register' ) ): ?>
+	        <a title="<?php echo esc_attr('Create Account', 'nibble-core'); ?>" href="<?php echo wp_registration_url();?>" class="ml-2 btn btn-secondary">
+	        	<?php echo esc_html('Create Account', 'nibble-core'); ?>
+	        </a>
+	    <?php else: ?>
+	    	<a data-toggle="tooltip" data-placement="bottom" title="<?php echo esc_attr('Registration is Currently Disabled', 'nibble-core'); ?>" href="<?php echo wp_registration_url();?>" class="ml-2 btn btn-secondary">
+	        	<?php echo esc_html('Create Account', 'nibble-core'); ?>
+	        </a>
+	    <?php endif; ?>
+	    
 		<?php
 	}
 endif;
