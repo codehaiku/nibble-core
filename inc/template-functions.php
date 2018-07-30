@@ -36,7 +36,8 @@ function nibble_core_pingback_header() {
 }
 add_action( 'wp_head', 'nibble_core_pingback_header' );
 
-function fb_the_password_form() {
+function nibble_core_the_password_form() {
+
     global $post;
 
     $label = 'pwbox-'.(empty($post->ID) ? rand() : $post->ID);
@@ -47,4 +48,9 @@ function fb_the_password_form() {
 
     return $output;
 }
-add_filter('the_password_form', 'fb_the_password_form');
+add_filter('the_password_form', 'nibble_core_the_password_form');
+
+add_filter( 'the_content', 'wpse8170_add_custom_table_class' );
+function wpse8170_add_custom_table_class( $content ) {
+    return str_replace( '<table>', '<table class="table table-striped">', $content );
+}

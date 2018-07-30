@@ -106,7 +106,7 @@ if ( ! function_exists( 'nibble_core_entry_footer' ) ) :
 			);
 
 		edit_post_link(
-			$edit_post_link_content,
+			$edit_post_link,
 			'<p class="edit-link mt-3">',
 			'</p>',
 			'',
@@ -172,6 +172,13 @@ if ( ! function_exists( 'nibble_core_get_user_navigation') ):
 		<!-- Just an image -->
 		<ul class="nav nav-pills float-right">
 			
+			<li class="nav-item">
+			  <a class="nav-link" href="#">My Messages</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link " href="#">Notifications</a>
+			</li>
+
 		  	<li class="nav-item dropdown">
 		    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 		    		<?php $display_name = 'Joseph Gabito'; ?>
@@ -188,12 +195,7 @@ if ( ! function_exists( 'nibble_core_get_user_navigation') ):
 			    </div>
 		 	</li>
 
-		 	<li class="nav-item">
-			  <a class="nav-link" href="#">My Messages</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link " href="#">Notifications</a>
-			</li>
+		 	
 			
 		</ul>
 		<?php
@@ -226,3 +228,4 @@ if ( ! function_exists( 'nibble_core_get_sign_in_buttons' ) ):
 		<?php
 	}
 endif;
+

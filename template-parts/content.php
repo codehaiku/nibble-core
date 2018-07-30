@@ -13,10 +13,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 	<header class="entry-header">
 		<div class="d-flex align-items-center p-3 border-bottom">
-			<div class="">
+			<div class="entry-header-avatar">
 				<?php echo get_avatar( get_the_author_meta('ID'), 32, '', '',  array('class' => 'rounded-circle') ); ?>
 			</div>
-			<div class="">
+			<div class="entry-header-meta">
 				<?php if ( 'post' === get_post_type() ) : ?>
 				<div class="entry-meta ml-3 text-secondary">
 					<?php
@@ -27,6 +27,11 @@
 				</div><!-- .entry-meta -->
 				<?php endif; ?>
 			</div>
+			<?php if (is_sticky()): ?>
+			<div class="sticky-star flex-fill text-right">
+				<i class="far fa-star text-success"></i>
+			</div>
+			<?php endif; ?>
 		</div>
 		<div class="archive-title p-3">
 		<?php

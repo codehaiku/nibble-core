@@ -40,3 +40,21 @@ img {
 a:hover{
 	text-decoration: none;
 }
+
+.posted-on time.updated {
+	border: 0;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    &.published {
+    	position: static;
+    	width: auto;
+    	height: auto;
+    	clip: unset;
+    	margin: auto;
+    }
+}
