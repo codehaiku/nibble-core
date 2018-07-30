@@ -47,8 +47,7 @@ get_header();
 					    <p class="card-text">
 					    	<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
 					    </p>
-					    <a href="<?php echo esc_url( get_term_link( $categories[$prev_cat] ) ); ?>" class="btn btn-primary">Previous</a>
-					    <a href="<?php echo esc_url( get_term_link( $categories[$next_cat] ) ); ?>" class="btn btn-primary">Next</a>
+					 
 					  </div>
 					</div>
 
