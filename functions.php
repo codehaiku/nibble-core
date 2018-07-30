@@ -127,10 +127,15 @@ add_action( 'widgets_init', 'nibble_core_widgets_init' );
  */
 function nibble_core_scripts() {
 
+	// Include Bootstrap.
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array() );
 	wp_enqueue_style( 'nibble-core-style', get_stylesheet_uri(), array('bootstrap') );
 
-	wp_enqueue_script( 'bootstra-script', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '20151215', true );
+
+	wp_enqueue_script( 'popper-script', get_template_directory_uri() . '/js/popper.min.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery', 'popper-script'), '20151215', true );
+
 	wp_enqueue_script( 'nibble-core-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'nibble-core-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -142,6 +147,7 @@ function nibble_core_scripts() {
 	wp_enqueue_style( 'nibble-core-google-fonts', nibble_core_google_fonts(), array(), '1.0.0' );
 
 }
+
 add_action( 'wp_enqueue_scripts', 'nibble_core_scripts' );
 
 /*
@@ -183,6 +189,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Custom Login Form. Overwritable via child theme.
+ */
+require get_stylesheet_directory() . '/nibble-core/login-form.php';
 
 /**
  * Load Jetpack compatibility file.
