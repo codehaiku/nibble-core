@@ -8,6 +8,8 @@ body { font-family: Rubik, sans-serif; }
 
 .mln-10 { margin-left: -10px; }
 
+@media (max-width: 780px) { .mln-10 { margin-left: 0; } }
+
 .mln-15 { margin-left: -15px; }
 
 .mrn-5 { margin-right: -5px; }
