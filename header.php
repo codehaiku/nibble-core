@@ -59,7 +59,7 @@
 						$nibble_core_description = get_bloginfo( 'description', 'display' );
 						if ( $nibble_core_description || is_customize_preview() ) :
 							?>
-							<p class="site-description"><?php echo $nibble_core_description; /* WPCS: xss ok. */ ?></p>
+							<p class="site-description text-secondary"><?php echo $nibble_core_description; /* WPCS: xss ok. */ ?></p>
 						<?php endif; ?>
 					</div><!-- .site-branding -->
 				</div>
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light border-top">
 			<div class="container px-3 px-md-3">
 		  		<a href="#" class="d-lg-none pl-0 btn btn-link disabled navbar-brand">
 		  			<?php esc_html_e('Navigation', 'nibble-core'); ?></a>
@@ -105,4 +105,4 @@
 
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content border-top">
