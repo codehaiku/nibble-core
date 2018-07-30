@@ -112,11 +112,11 @@ function nibble_core_widgets_init() {
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'nibble-core' ),
 		
-		'before_widget' => '<section id="%1$s" class="widget card mt-4 mb-4 %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget mb-5 %2$s">',
 		'after_widget'  => '</section>',
 
-		'before_title'  => '<div class="card-header"><h2 class="widget-title h6 mb-0">',
-		'after_title'   => '</h2></div><div class="card-body">',
+		'before_title'  => '<div class="widget-header mb-2"><h2 class="widget-title h6 mb-0">',
+		'after_title'   => '</h2></div><div class="widget-body">',
 		
 	) );
 }
@@ -127,24 +127,37 @@ add_action( 'widgets_init', 'nibble_core_widgets_init' );
  */
 function nibble_core_scripts() {
 
+	// Include our beautiful font.
+	wp_enqueue_style( 'nibble-core-google-fonts', nibble_core_google_fonts(), array(), '1.0.0' );
+
 	// Include Bootstrap.
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array() );
 
+	// Include our Theme Style.
 	wp_enqueue_style( 'nibble-core-style', get_stylesheet_uri(), array('bootstrap') );
 
+	// Include FontAwesome.
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/fontawesome.min.css' , array() );
+
+	// Include Popper Script (A Bootstrap Dependency).
 	wp_enqueue_script( 'popper-script', get_template_directory_uri() . '/js/popper.min.js', array(), '20151215', true );
 
+	// Include Bootstrap Script.
 	wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery', 'popper-script'), '20151215', true );
 
+	// Include FontAwesome Script.
+	wp_enqueue_script( 'fontawesome-js', get_template_directory_uri() . '/js/fontawesome.min.js', array(), '20151215', true );
+
+	// Include Nibble Core Scripts.
 	wp_enqueue_script( 'nibble-core-js', get_template_directory_uri() . '/js/nibble-core.js', array(), '20151215', true );
 
+	// Defaults.
 	wp_enqueue_script( 'nibble-core-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_style( 'nibble-core-google-fonts', nibble_core_google_fonts(), array(), '1.0.0' );
 
 }
 
