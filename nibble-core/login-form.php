@@ -114,7 +114,11 @@ function nibble_core_login_form_modal( $args = array() ) {
 			        	<?php echo esc_html('Sign-in', 'nibble-core'); ?>
 			        </button>
 			        <?php if ( get_option( 'users_can_register' ) ): ?>
-				        <a title="<?php echo esc_attr('Create Account', 'nibble-core'); ?>" href="<?php echo wp_registration_url();?>" class="btn btn-link">
+				        <a title="<?php echo esc_attr('Create Account', 'nibble-core'); ?>" href="<?php echo wp_registration_url();?>" class="btn btn-link ml-2">
+				        	<?php echo esc_html('Create Account', 'nibble-core'); ?>
+				        </a>
+				    <?php else: ?>
+				    	<a title="<?php echo esc_attr('Create Account', 'nibble-core'); ?>" href="<?php echo wp_registration_url();?>" class="btn btn-link disabled ml-2">
 				        	<?php echo esc_html('Create Account', 'nibble-core'); ?>
 				        </a>
 				    <?php endif; ?>
