@@ -26,7 +26,7 @@ if ( ! function_exists( 'nibble_core_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'nibble-core' ),
+			esc_html_x( 'on %s', 'post date', 'nibble-core' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -42,7 +42,7 @@ if ( ! function_exists( 'nibble_core_posted_by' ) ) :
 	function nibble_core_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'nibble-core' ),
+			esc_html_x( 'Published by %s', 'post author', 'nibble-core' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -69,7 +69,7 @@ if ( ! function_exists( 'nibble_core_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'nibble-core' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'nibble-core' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links ml-2">' . esc_html__( 'Tagged %1$s', 'nibble-core' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
@@ -92,8 +92,7 @@ if ( ! function_exists( 'nibble_core_entry_footer' ) ) :
 			echo '</span>';
 		}
 
-		edit_post_link(
-			sprintf(
+		$edit_post_link = sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'nibble-core' ),
@@ -104,9 +103,14 @@ if ( ! function_exists( 'nibble_core_entry_footer' ) ) :
 					)
 				),
 				get_the_title()
-			),
-			'<span class="edit-link">',
-			'</span>'
+			);
+
+		edit_post_link(
+			$edit_post_link_content,
+			'<p class="edit-link mt-3">',
+			'</p>',
+			'',
+			'btn btn-outline-secondary btn-sm'
 		);
 	}
 endif;
@@ -218,7 +222,7 @@ if ( ! function_exists( 'nibble_core_get_sign_in_buttons' ) ):
 	        	<?php echo esc_html('Create Account', 'nibble-core'); ?>
 	        </a>
 	    <?php endif; ?>
-	    
+
 		<?php
 	}
 endif;
