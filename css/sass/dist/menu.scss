@@ -1,0 +1,22 @@
+body {
+	font-family: Rubik, sans-serif;
+}
+.wp-custom-logo {
+	.site-title {
+		display: none; 
+	}
+}
+.site-content {
+	visibility: hidden;
+} 
+
+.mln-5  { margin-left: -5px; }
+.mln-10 { margin-left: -10px; }
+.mln-15 { margin-left: -15px; }
+.mrn-5  { margin-right: -5px; }
+.mrn-10 { margin-right: -10px; }
+.mrn-15 { margin-right: -15px; }
+
+.modal-dialog {
+	margin: 3.75rem auto;
+}
