@@ -35,3 +35,16 @@ function nibble_core_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'nibble_core_pingback_header' );
+
+function fb_the_password_form() {
+    global $post;
+
+    $label = 'pwbox-'.(empty($post->ID) ? rand() : $post->ID);
+    $output = '<form action="' . esc_attr( get_option('siteurl') ) . '/wp-login.php?action=postpass" method="post">
+    <div class="form-group"><p>' . esc_html__("This content is password protected. To view it please enter your password below:", 'nibble-core') . '</p>
+    <p><label for="' . $label . '">' . __("Password", 'nibble-core') . ' <input class="form-control" name="post_password" id="' . $label . '" type="password" size="20" /></label> <input class="btn btn-outline-success" type="submit" name="Submit" value="' . esc_attr__("Unlock Content") . '" /></p>
+    </div></form>';
+
+    return $output;
+}
+add_filter('the_password_form', 'fb_the_password_form');
