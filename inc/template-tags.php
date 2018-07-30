@@ -146,3 +146,72 @@ if ( ! function_exists( 'nibble_core_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+if ( ! function_exists( 'nibble_core_the_user_navigation' ) ):
+	/**
+	 * Display current user navigation.
+	 */
+	function nibble_core_the_user_navigation() {
+		if ( is_user_logged_in() ) {
+			nibble_core_get_user_navigation();
+		} else {
+			nibble_core_get_sign_in_buttons();
+		}
+	}
+
+endif;
+
+if ( ! function_exists( 'nibble_core_get_user_navigation') ):
+	
+	function nibble_core_get_user_navigation() {
+		?>
+		<!-- Just an image -->
+		<ul class="nav nav-pills float-right">
+			
+		  	<li class="nav-item dropdown">
+		    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+		    		<?php $display_name = 'Joseph Gabito'; ?>
+		  		 	<?php echo get_avatar(get_current_user_id(), 30, '', $display_name, array('class'=>'rounded') ); ?>
+		   			<?php echo esc_html( $display_name ); ?>
+		  		</a>
+		    	
+			    <div class="dropdown-menu">
+			      <a class="dropdown-item" href="#">Action</a>
+			      <a class="dropdown-item" href="#">Another action</a>
+			      <a class="dropdown-item" href="#">Something else here</a>
+			      <div class="dropdown-divider"></div>
+			      <a class="dropdown-item" href="#">Separated link</a>
+			    </div>
+		 	</li>
+
+		 	<li class="nav-item">
+			  <a class="nav-link" href="#">My Messages</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link " href="#">Notifications</a>
+			</li>
+			
+		</ul>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'nibble_core_get_sign_in_buttons' ) ):
+	function nibble_core_get_sign_in_buttons() {
+		?>
+		<a data-toggle="modal" data-target="#nibble-core-login-modal" href="#" class="btn btn-primary">Sign-in</a>
+		<!-- Modal -->
+		<?php 
+			$args = array(
+				'email_help' => __('We\'ll never share your email with anyone else.', 'nibble-core'),
+				'password_help' => ''
+			); 
+		?>
+		<?php echo nibble_core_login_form_modal( $args ); ?>
+
+		<a href="#" class="btn btn-secondary">
+			<?php esc_html_e('Register', 'nibble-core'); ?>
+		</a>
+		<?php
+	}
+endif;
