@@ -30,7 +30,7 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-sm">
-					<div class="site-branding pt-3 pb-3">
+					<div class="site-branding pt-3 pb-3 text-center text-sm-left">
 						<?php
 						$custom_logo_id = get_theme_mod( 'custom_logo' );
 						if ( empty( $custom_logo_id ) ) { ?>
@@ -64,8 +64,8 @@
 					</div><!-- .site-branding -->
 				</div>
 				<!--Right Actions-->
-				<div class="col-sm">
-					<div class="float-right">
+				<div class="col-sm mb-4 mb-md-0">
+					<div class="d-flex justify-content-center justify-content-md-end">
 						<?php nibble_core_the_user_navigation(); ?>
 					</div>
 				</div>
@@ -74,21 +74,21 @@
 		</div>
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container">
-		  
+			<div class="container px-3 px-md-3">
+		  		<a href="#" class="d-lg-none pl-0 btn btn-link disabled navbar-brand">
+		  			<?php esc_html_e('Navigation', 'nibble-core'); ?></a>
 		  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    		<span class="navbar-toggler-icon"></span>
 		  		</button>
 
-			  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			    	<ul class="navbar-nav mr-auto mln-10">
+			  		<div class="collapse navbar-collapse mln-10" id="navbarSupportedContent">
 			      		<?php
 							 wp_nav_menu([
 								'menu'            => 'menu-1',
 								'theme_location'  => 'menu-1',
-								'container'       => 'div',
-								'container_id'    => 'bs4navbar',
-								'container_class' => 'collapse navbar-collapse',
+								'container'       => '',
+								'container_id'    => '',
+								'container_class' => '',
 								'menu_id'         => false,
 								'menu_class'      => 'navbar-nav mr-auto',
 								'depth'           => 2,
@@ -96,12 +96,8 @@
 								'walker'          => new bs4navwalker()
 							]);
 						?>
-			    	</ul>
-			    	<form class="form-inline my-2 my-lg-0">
-	      			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	    		</form>
-	    	</div>
+			    	<?php get_search_form(); ?>
+	    		</div>
 		  </div>
 		  	
 		</nav>
