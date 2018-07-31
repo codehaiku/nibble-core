@@ -43,8 +43,13 @@ $layout = '2';
 					endwhile;
 					/* Post Navigation */
 					?>
-					<h5 class="text-secondary"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
-							<?php the_posts_navigation(); ?>
+					
+					<?php $has_post_navigation = get_the_posts_navigation(); ?>
+					<?php if ( ! empty( $has_post_navigation ) ): ?>
+						<h5 class="text-secondary"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
+						<?php the_posts_navigation(); ?>
+					<?php endif; ?>
+					
 					<?php
 				else :
 					get_template_part( 'template-parts/content', 'none' );
