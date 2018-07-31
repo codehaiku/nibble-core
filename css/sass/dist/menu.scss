@@ -3,13 +3,24 @@ body {
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
+table td, table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+.site-title a {
+	color: #38424a;
+}
+a {
+	color: #38424a;
+}
 .wp-custom-logo {
 	.site-title {
 		display: none; 
 	}
 }
 .site-content {
-	background: #f8f9fa;
+	
 } 
 
 .mln-5  { margin-left: -5px; }
@@ -36,7 +47,6 @@ img {
 	height: auto;
 	max-width: 100%;
 }
-
 a:hover{
 	text-decoration: none;
 }
@@ -57,4 +67,65 @@ a:hover{
     	clip: unset;
     	margin: auto;
     }
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+  	&:focus {
+		background-color: #eee;
+		clip: auto !important;
+		clip-path: none;
+		color: #444;
+		display: block;
+		font-size: 1em;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar. */
+	}
+}
+
+.nav-links {
+	display: flex;
+	justify-content: center;
+	.nav-next,
+	.nav-previous{
+		text-align: left;
+		flex-grow: 1;
+		a {
+			padding: 20px;
+			display: block;
+			font-weight: bold;
+		}
+	}
+
+	.nav-next {
+		text-align: right;
+		a { padding-right: 0; } 
+	}
+
+	.nav-previous {
+		a { padding-left: 0; } 
+	}
+	
+}
+
+.comment-body {
+	width: 100%;
+}
+li.comment {
+	list-style: none;
 }
