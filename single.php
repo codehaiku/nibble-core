@@ -23,6 +23,7 @@ get_header();
 
 					?>
 					<div class="mb-3">
+						<h5 class="text-secondary"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
 						<?php the_post_navigation(); ?>
 					</div>
 					<?php
