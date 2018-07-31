@@ -63,3 +63,20 @@ add_filter( 'the_content', 'nibble_core_custom_tables' );
 function nibble_core_custom_tables( $content ) {
     return str_replace( '<table>', '<table class="table table-striped">', $content );
 }
+
+
+add_filter('cancel_comment_reply_link', 'nibble_core_get_cancel_comment_reply_link', 10, 3);
+
+function nibble_core_get_cancel_comment_reply_link( $formatted_link, $link, $text ) { 
+
+  if ( empty($text) ) {
+      $text = __('Click here to cancel reply.'); 
+  }
+ 
+  $style = isset($_GET['replytocom']) ? '' : ' style="display:none;"'; 
+  $link = esc_html( remove_query_arg('replytocom') ) . '#respond'; 
+ 
+  $formatted_link = '<a rel="nofollow" class="btn-sm btn btn-secondary float-right" id="cancel-comment-reply-link" href="' . $link . '"' . $style . '>' . $text . '</a>'; 
+ 
+  return $formatted_link;
+} 
