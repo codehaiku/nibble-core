@@ -32,25 +32,17 @@
 				<div class="col-sm">
 					<div class="site-branding pt-3 pb-3 text-center text-sm-left">
 						<?php
-						$custom_logo_id = get_theme_mod( 'custom_logo' );
-						if ( empty( $custom_logo_id ) ) { ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<img width="178px" src="<?php echo esc_url( get_template_directory_uri() . '/css/images/logo.png'); ?>" alt="" class="logo-default mb-2" />
-							</a>
-						<?php
-						} else {
-							the_custom_logo();
-						}
+						the_custom_logo();
 						if ( is_front_page() && is_home() ) :
 						?>
-						<h1 class="site-title sr-only">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+						<h1 class="site-title">
+							<a class="font-weight-bold" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 						</h1>
 						<?php
 						else :
 						?>
-						<p class="site-title sr-only">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<p class="site-title h1">
+							<a class="font-weight-bold" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 								<?php bloginfo( 'name' ); ?>
 							</a>
 						</p>
