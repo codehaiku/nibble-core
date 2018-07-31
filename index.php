@@ -43,9 +43,8 @@ $layout = '2';
 					endwhile;
 					/* Post Navigation */
 					?>
-					<div class="d-flex justify-content-center">
-						<?php the_posts_navigation(); ?>
-					</div>
+					<h5 class="text-secondary"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
+							<?php the_posts_navigation(); ?>
 					<?php
 				else :
 					get_template_part( 'template-parts/content', 'none' );

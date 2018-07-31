@@ -4,112 +4,64 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Nibble_Core
+ * @package _s
  */
 
 get_header();
 ?>
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12 col-md-12 col-lg-8">
-			<div id="primary" class="content-area">
-				<main id="main" class="site-main">
-					<?php
-					$this_category = get_queried_object();
-					$categories = get_categories();
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
 
-					foreach( $categories as $position => $cat ) :
-					    if( $this_category->term_id == $cat->term_id ) :
-					        $next_cat = $position + 1;
-					        $prev_cat = $position - 1;
-					        break;
-					    endif;
-					endforeach;
-
-					$next_cat = $next_cat == count($categories) ? 0 : $next_cat;
-					$prev_cat = $prev_cat < 0 ? count($categories) - 1 : $prev_cat;
-
-					?>
-				<?php if ( have_posts() ) : ?>
-
-					<!-- Archive head-->
-					<div class="card mb-4 mt-4">
-					  <div class="card-header">
-					    	Archives
-					  </div>
-					  <div class="card-body">
-					    <h1 class="card-title h5">
-					    	<?php
-								the_archive_title();
+			<header class="page-header py-4 mb-5 bg-light border-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<?php
+								the_archive_title( '<h1 class="page-title display-4">', '</h1>' );
+								the_archive_description( '<div class="archive-description lead">', '</div>' );
 							?>
-					    </h1>
-					    <p class="card-text">
-					    	<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
-					    </p>
-					 
-					  </div>
+						</div>
 					</div>
+				</div>
+			</header><!-- .page-header -->
 
-					<div class="card-columns" style="column-count: 2;">					
-					<?php
-					/* Start the Loop */
-					while ( have_posts() ) :
-						the_post();
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-8">
+						<?php if ( have_posts() ) : ?>
+							<?php
+							/* Start the Loop */
+							while ( have_posts() ) :
+								the_post();
 
-						/*
-						 * Include the Post-Type-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-						 */
-						//get_template_part( 'template-parts/content', get_post_type() );
+								/*
+								 * Include the Post-Type-specific template for the content.
+								 * If you want to override this in a child theme, then include a file
+								 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+								 */
+								get_template_part( 'template-parts/content', get_post_type() );
+
+							endwhile;
+
+							?>
+							<h5 class="text-secondary"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
+							<?php the_posts_navigation(); ?>
+							<?php
+							
+							else :
+								get_template_part( 'template-parts/content', 'none' );
+							endif;
 						?>
-
-							<div class="card" style="display: inline-block; column-break-inside: avoid;">
-								<?php the_post_thumbnail(); ?>
-							  	<div class="card-body">
-							  		<h4 class="card-title">
-							  			<a href="<?php esc_url( the_permalink() ); ?>">
-							  				<?php the_title(); ?>
-							  			</a>
-							  		</h4>
-								    <p class="card-text">
-								    	<?php the_excerpt(); ?>
-								    </p>
-								    
-							    
-							  	</div>
-							  	 <div class="card-footer">
-							  		<small class="card-text">
-							    		<?php nibble_core_posted_on() ?>
-							    	</small>
-							  </div>
-							</div>
-						<?php
-
-					endwhile;
-					?>
 					</div>
-					<?php
-					the_posts_navigation();
-
-				else :
-
-					get_template_part( 'template-parts/content', 'none' );
-
-				endif;
-				?>
-
-				</main><!-- #main -->
-			</div><!-- #primary -->
-		</div>
-		<div class="col-sm-12 col-md-12 col-lg-4">
-			<div class="sidebar">
-				<?php get_sidebar(); ?>
+					<div class="col-sm-12 col-md-12 col-lg-4">
+						<?php get_sidebar(); ?>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
 <?php
 
 get_footer();
