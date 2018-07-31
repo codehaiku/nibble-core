@@ -53,7 +53,12 @@
 	<?php endif ;?>
 
 	<?php if ( is_single() ): ?>
-		<div class="entry-content text-secondary px-5 py-3 border-bottom">
+		<?php if ( has_post_thumbnail() ): ?>
+			<div class="entry-content text-secondary px-5 py-3 border-bottom">
+		<?php else: ?>
+			<div class="entry-content text-secondary px-3 border-bottom">
+		<?php endif;?>
+		
 	<?php else: ?>
 		<div class="entry-content text-secondary px-3 border-bottom">
 	<?php endif; ?>
@@ -75,7 +80,9 @@
 		} else {
 			the_excerpt();
 		}
-
+		?>
+		<div class="clearfix"></div>
+		<?php
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_nibble_core' ),
 			'after'  => '</div>',
@@ -91,14 +98,18 @@
 
 	<footer class="entry-footer text-secondary">
 		<div class="d-flex bd-highlight">
-			<a class="text-secondary flex-fill text-center border-right p-3 bg-light" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php esc_attr_e('Read More', 'nibble-core'); ?>">
-				<i class="fab fa-readme"></i>
-				<?php esc_html_e('Read More', 'nibble-core'); ?>
-			</a>
-			<a class="text-secondary flex-fill text-center p-3 bg-light" href="<?php comments_link(); ?>" title="<?php esc_attr_e('Comments', 'nibble-core'); ?>">
-				<i class="far fa-comment-dots"></i>
-				<?php comments_number( 'Leave a Comment', 'One Comment', '% Comments' ); ?>
-			</a>
+			<?php if ( ! is_single() ): ?>
+				<a class="text-secondary flex-fill text-center border-right p-3 bg-light" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php esc_attr_e('Read More', 'nibble-core'); ?>">
+					<i class="far fa-arrow-alt-circle-right"></i>
+					<?php esc_html_e('Read More', 'nibble-core'); ?>
+				</a>
+			<?php endif; ?>
+			<?php if ( comments_open() ): ?>
+				<a class="text-secondary flex-fill text-center p-3 bg-light" href="<?php comments_link(); ?>" title="<?php esc_attr_e('Comments', 'nibble-core'); ?>">
+					<i class="far fa-comment-dots"></i>
+					<?php comments_number( 'Leave a Comment', 'One Comment', '% Comments' ); ?>
+				</a>
+			<?php endif; ?>
 		</div>
 		
 	</footer><!-- .entry-footer -->
