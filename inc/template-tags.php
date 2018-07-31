@@ -173,16 +173,21 @@ if ( ! function_exists( 'nibble_core_get_user_navigation') ):
 		<ul class="nav nav-pills float-right">
 			
 			<li class="nav-item">
-			  <a class="nav-link" href="#">My Messages</a>
+			  <a class="nav-link" href="#">
+			  	<i class="far fa-envelope"></i> Message
+			  </a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link " href="#">Notifications</a>
+			  <a class="nav-link " href="#">
+			  	<i class="far fa-bell"></i> Notifications
+			  </a>
 			</li>
 
 		  	<li class="nav-item dropdown">
-		    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+
+		    	<a class="nav-link dropdown-toggle bp-light border" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 		    		<?php $display_name = 'Joseph Gabito'; ?>
-		  		 	<?php echo get_avatar(get_current_user_id(), 30, '', $display_name, array('class'=>'rounded') ); ?>
+		  		 	<?php echo get_avatar(get_current_user_id(), 28, '', $display_name, array('class'=>'rounded mr-2') ); ?>
 		   			<?php echo esc_html( $display_name ); ?>
 		  		</a>
 		    	
@@ -194,8 +199,6 @@ if ( ! function_exists( 'nibble_core_get_user_navigation') ):
 			      <a class="dropdown-item" href="#">Separated link</a>
 			    </div>
 		 	</li>
-
-		 	
 			
 		</ul>
 		<?php
@@ -229,3 +232,79 @@ if ( ! function_exists( 'nibble_core_get_sign_in_buttons' ) ):
 	}
 endif;
 
+
+if ( ! function_exists( 'nibble_core_comments_list_template' ) ):
+	/**
+	 * Custom callback function to display our comment.s
+	 * @see <https://codex.wordpress.org/Function_Reference/wp_list_comments>
+	 */
+	function nibble_core_comments_list_template( $comment, $args, $depth ) {
+		?>
+		<li id="comment-<?php echo esc_attr( $comment->comment_ID ); ?>" <?php comment_class( array('mb-5', empty( $args['has_children'] ) ? '' : 'parent' ) ); ?>>
+			<div class="d-flex">
+				<div class="comment-avatar">
+					<?php echo get_avatar( $comment->comment_author_email, 48, '', '', array('class' => 'rounded-circle') ); ?>
+				</div>
+				<div class="comment-author">
+					<div class="pl-4">
+						<div class="row">
+							<div class="col-sm-12">
+								<i class="fas fa-user text-secondary mr-1"></i> 
+								<span class="h6">
+									<?php echo get_comment_author_link(); ?>
+								</span>
+							</div>
+							<div class="col-sm-12">
+								<span class="text-secondary">
+									<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+										<?php 
+											/* translators: 1: date, 2: time */
+							                printf(   __('%1$s at %2$s'), get_comment_date(), get_comment_time() ); ?>
+					            	</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="d-flex flex-column">
+				<div id="div-comment-<?php echo esc_attr( $comment->comment_ID ); ?>" class="comment-body  pt-3 bg-light border p-3 mt-4 text-secondary">
+					<div class="py-3">
+						<?php comment_text(); ?>
+					</div>
+					<?php $reply_btn = nibble_core_comment_reply_btn( $args, $depth ); ?>
+					<?php if ( ! empty( $reply_btn ) || ( current_user_can( 'edit_comment', $comment->comment_ID ) ) ): ?>
+						<div class="d-flex ">
+							<?php  if ( current_user_can( 'edit_comment', $comment->comment_ID ) ){ ?>
+								<div class="comment-edit mr-2">
+									<a class="btn btn-outline-secondary" title="<?php esc_attr_e( 'Edit Comment', 'nibble-core'); ?>" href="<?php echo esc_url( get_edit_comment_link( $comment->comment_ID ) ); ?>">
+										<?php esc_html_e( 'Edit Comment', 'nibble-core'); ?>
+									</a>
+								</div>
+							<?php } ?>
+							<div class="reply">
+								<?php echo nibble_core_comment_reply_btn( $args, $depth ); ?>
+				       		</div><!--.reply-->
+				       	</div><!--.d-flex-->
+			       	<?php endif; ?>
+				</div>
+			</div>
+			
+		</li>
+		
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'nibble_core_comment_reply_btn' ) ):
+	function nibble_core_comment_reply_btn( $args, $depth ) {
+		ob_start();
+
+		$opts = array( 'depth' => $depth, 'max_depth' => $args['max_depth'] );
+		$opts['add_below'] = 'div-comment';
+		$opts['reply_text'] = '<i class="fas fa-reply"></i> ' . esc_html__('Reply', 'nibble-core');
+		comment_reply_link( array_merge( $args, $opts ) ); 
+		
+		return str_replace( 'comment-reply-link', 'comment-reply-link btn btn-outline-secondary', ob_get_clean() );
+	}
+endif;
