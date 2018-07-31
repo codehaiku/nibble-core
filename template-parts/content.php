@@ -9,7 +9,7 @@
 
 ?>
 
-<?php $classes = array('mb-5', 'bg-white', 'shadow'); ?>
+<?php $classes = array('mb-3', 'bg-white', 'shadow-sm', 'border'); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 	<header class="entry-header">
 		<div class="d-flex align-items-center p-3 border-bottom">
