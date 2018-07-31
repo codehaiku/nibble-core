@@ -74,7 +74,7 @@ if ( ! function_exists( 'nibble_core_entry_footer' ) ) :
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
+			echo '<span class="comments-link screen-reader-text">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -270,6 +270,7 @@ if ( ! function_exists( 'nibble_core_comments_list_template' ) ):
 			<div class="d-flex flex-column">
 				<div id="div-comment-<?php echo esc_attr( $comment->comment_ID ); ?>" class="comment-body  pt-3 bg-light border p-3 mt-4 text-secondary">
 					<div class="py-3">
+						
 						<?php comment_text(); ?>
 					</div>
 					<?php $reply_btn = nibble_core_comment_reply_btn( $args, $depth ); ?>
