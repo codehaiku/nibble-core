@@ -40,7 +40,11 @@ a:hover { text-decoration: none; }
 
 .nav-links { display: flex; justify-content: center; }
 
-.nav-links .nav-next, .nav-links .nav-previous { text-align: left; flex-grow: 1; }
+.nav-links > div:only-child { max-width: 100%; flex-basis: 100%; text-align: left; }
+
+.nav-links > div:only-child a { padding-left: 0; }
+
+.nav-links .nav-next, .nav-links .nav-previous { text-align: left; flex-grow: 1; flex-basis: 50%; max-width: 50%; }
 
 .nav-links .nav-next a, .nav-links .nav-previous a { padding: 20px; display: block; font-weight: bold; }
 
@@ -59,6 +63,73 @@ li.comment { list-style: none; }
 .comment-respond .comment-reply-title { font-size: 1.45rem; margin-bottom: 1rem; }
 
 .comment-respond form { clear: both; }
+
+/** Contents */
+.entry-content { /** Gallery */ }
+
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 { color: #38424a; }
+
+.entry-content .alignleft { float: left; margin: 0 1rem 0 0; }
+
+.entry-content .alignright { float: right; margin: 0 0 0 1rem; }
+
+.entry-content .aligncenter { margin: 0 auto; display: block; }
+
+.entry-content figure { margin-bottom: 1rem; display: table; }
+
+.entry-content figure > * { display: table-cell; }
+
+.entry-content .wp-caption-text { font-size: smaller; padding: 10px; border: 1px solid #dfe2e7; border-top: 0 none; display: table-caption; caption-side: bottom; }
+
+.entry-content .gallery { display: flex; flex-wrap: wrap; }
+
+.entry-content .gallery figure { background: #343a40; text-align: center; padding: 0.25rem; }
+
+.entry-content .gallery figure img { width: 100%; }
+
+.entry-content .gallery .wp-caption-text { background: #343a40; border: 0 none; color: #f8f9fa; display: none; }
+
+.entry-content .gallery .gallery-item { flex-grow: 1; flex-basis: 23%; max-width: 23%; margin: 1%; }
+
+.entry-content .gallery.gallery-columns-4 { margin: 0 -1% 1rem -1%; }
+
+.entry-content .gallery.gallery-columns-9 { margin: 0 -0.60% 1rem -0.60%; }
+
+.entry-content .gallery.gallery-columns-9 .gallery-item { padding: 0.15rem; flex-basis: 9%; max-width: 9%; }
+
+.entry-content .gallery.gallery-columns-8 { margin: 0 -0.60% 1rem -0.60%; }
+
+.entry-content .gallery.gallery-columns-8 .gallery-item { padding: 0.25rem; flex-basis: 10%; max-width: 15%; }
+
+.entry-content .gallery.gallery-columns-7 { margin: 0 -0.60% 1rem -0.60%; }
+
+.entry-content .gallery.gallery-columns-7 .gallery-item { padding: 0.25rem; flex-basis: 11%; max-width: 20%; }
+
+.entry-content .gallery.gallery-columns-6 { margin: 0 -0.60% 1rem -0.60%; }
+
+.entry-content .gallery.gallery-columns-6 .gallery-item { padding: 0.25rem; flex-basis: 14%; max-width: 100%; }
+
+.entry-content .gallery.gallery-columns-5 { margin: 0 -0.60% 1rem -0.60%; }
+
+.entry-content .gallery.gallery-columns-5 .gallery-item { padding: 0.25rem; flex-basis: 18%; max-width: 100%; }
+
+.entry-content .gallery.gallery-columns-3 .gallery-item { flex-basis: 31%; max-width: 31%; }
+
+.entry-content .gallery.gallery-columns-2 .gallery-item { flex-basis: 48%; max-width: 48%; }
+
+.entry-content .gallery.gallery-columns-1 { margin: 0 0 1rem 0; }
+
+.entry-content .gallery.gallery-columns-1 .gallery-item { padding: 0; margin: 0 0 1rem 0; flex-basis: 100%; max-width: 100%; background: transparent; text-align: unset; }
+
+.entry-content .gallery.gallery-columns-1 .gallery-item img { width: auto; }
+
+.entry-content blockquote { background: #343a40; font-weight: 300; font-size: 0.85em; border-top: 5px solid; border-color: #38424a; border-left: none; padding: 40px 50px 45px 50px; box-shadow: 0px 1px 4px #ddd; position: relative; overflow: hidden; }
+
+.entry-content blockquote * { position: relative; z-index: 20; color: #fff; }
+
+.entry-content blockquote cite { margin-top: 1rem; display: block; }
+
+.entry-content blockquote:after { content: " "; position: absolute; height: 250px; width: 250px; background: #ffffff; border-radius: 50%; right: -7em; bottom: 2em; z-index: 10; opacity: 0.25; }
 
 /** Widgets */
 .widget select { display: block; width: 100%; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
