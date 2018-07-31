@@ -9,7 +9,7 @@
 
 ?>
 
-<?php $classes = array('mb-3', 'bg-white', 'shadow-sm', 'border'); ?>
+<?php $classes = array('mb-5', 'bg-white', 'shadow-sm', 'border'); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 	<header class="entry-header">
 		<div class="d-flex align-items-center p-3 border-bottom">
@@ -52,7 +52,12 @@
 		</div>
 	<?php endif ;?>
 
-	<div class="entry-content text-secondary px-3 border-bottom">
+	<?php if ( is_single() ): ?>
+		<div class="entry-content text-secondary px-5 py-3 border-bottom">
+	<?php else: ?>
+		<div class="entry-content text-secondary px-3 border-bottom">
+	<?php endif; ?>
+	
 		<?php
 		if ( is_single() ) {
 			the_content( sprintf(
@@ -75,6 +80,7 @@
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_nibble_core' ),
 			'after'  => '</div>',
 		) );
+
 		?>
 
 		<div class="post-taxonomies mt-3 mb-3 small">
@@ -91,7 +97,7 @@
 			</a>
 			<a class="text-secondary flex-fill text-center p-3 bg-light" href="<?php comments_link(); ?>" title="<?php esc_attr_e('Comments', 'nibble-core'); ?>">
 				<i class="far fa-comment-dots"></i>
-				<?php comments_number( 'Add Comment', 'One Comment', '% Comments' ); ?>
+				<?php comments_number( 'Leave a Comment', 'One Comment', '% Comments' ); ?>
 			</a>
 		</div>
 		
