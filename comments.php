@@ -26,33 +26,24 @@ if ( post_password_required() ) {
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
-			<?php
-			$nibble_core_comment_count = get_comments_number();
-			if ( '1' === $nibble_core_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'nibble-core' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $nibble_core_comment_count, 'comments title', 'nibble-core' ) ),
-					number_format_i18n( $nibble_core_comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
+		<h2 class="comments-title h4 mt-4 mb-5 border-bottom border-dark">
+			<span class="bg-dark text-light d-inline-block px-3 py-2">
+				<i class="far fa-comments"></i>
+				<?php 
+				comments_number( __('Add Comment','nibble-core'), 
+				__('One Comment', 'nibble-core'), __('% Comments', 'nibble-core') ); 
+				?>
+			</span>
 		</h2><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<ol class="comment-list list-unstyled">
 			<?php
 			wp_list_comments( array(
 				'style'      => 'ol',
 				'short_ping' => true,
+				'callback' => 'nibble_core_comments_list_template'
 			) );
 			?>
 		</ol><!-- .comment-list -->
@@ -63,13 +54,15 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'nibble-core' ); ?></p>
+			<p class="no-comments text-info mt-3">
+				<i class="fas fa-comment-slash"></i> <?php esc_html_e( 'Comments are closed.', 'nibble-core' ); ?>
+			</p>
 			<?php
 		endif;
 
 	endif; // Check for have_comments().
 
-	comment_form($args=array(
+		comment_form($args=array(
 			'class_submit' => 'btn btn-primary'
 		));
 	?>
