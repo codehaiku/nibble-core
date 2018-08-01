@@ -132,7 +132,11 @@ li.comment { list-style: none; }
 .entry-content blockquote:after { content: " "; position: absolute; height: 250px; width: 250px; background: #ffffff; border-radius: 50%; right: -7em; bottom: 2em; z-index: 10; opacity: 0.25; }
 
 /** Widgets */
-.widget select { display: block; width: 100%; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
+.widget input, .widget select { display: block; width: 100%; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
+
+.widget input:focus, .widget select:focus { outline: 0; color: #495057; background-color: #fff; border-color: #80bdff; box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+
+.widget input[type=checkbox], .widget input[type=radio], .widget select[type=checkbox], .widget select[type=radio] { display: inline-block; width: auto; margin-right: 0.25rem; }
 
 .widget select:not([size]):not([multiple]) { height: calc(2.25rem + 2px); }
 
