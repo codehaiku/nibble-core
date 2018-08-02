@@ -68,7 +68,7 @@
 			the_content( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', '_nibble_core' ),
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'nibble-core' ),
 				array(
 					'span' => array(
 						'class' => array(),
@@ -84,7 +84,7 @@
 		<div class="clearfix"></div>
 		<?php
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_nibble_core' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nibble-core' ),
 			'after'  => '</div>',
 		) );
 
