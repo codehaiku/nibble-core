@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm">
-					<a href="<?php echo esc_url( get_bloginfo('wpurl') );?>" title="<?php echo esc_attr( get_bloginfo('name') ); ?>">
+					<a href="<?php echo esc_url( site_url() );?>" title="<?php echo esc_attr( get_bloginfo('name') ); ?>">
 						<?php echo sprintf( esc_html__('%s. All Rights Reserved.', 'nibble-core'), get_bloginfo('name') ); ?>
 					</a>
 				</div>
