@@ -1,3 +1,7 @@
+/** Colors */
+/** Colors End */
+html { position: relative; min-height: 100%; }
+
 body { font-family: Rubik, sans-serif; -ms-word-wrap: break-word; word-wrap: break-word; }
 
 table td, table th { padding: .75rem; vertical-align: top; border-top: 1px solid #dee2e6; }
@@ -75,11 +79,9 @@ li.comment { list-style: none; }
 
 .entry-content .aligncenter { margin: 0 auto; display: block; }
 
-.entry-content figure { margin-bottom: 1rem; display: table; }
+.entry-content figure { margin-bottom: 1rem; }
 
-.entry-content figure > * { display: table-cell; }
-
-.entry-content .wp-caption-text { font-size: smaller; padding: 10px; border: 1px solid #dfe2e7; border-top: 0 none; display: table-caption; caption-side: bottom; }
+.entry-content .wp-caption-text { font-size: smaller; padding: 10px; border: 1px solid #dfe2e7; border-top: 0 none; }
 
 .entry-content .gallery { display: flex; flex-wrap: wrap; }
 
@@ -139,5 +141,13 @@ li.comment { list-style: none; }
 .widget input[type=checkbox], .widget input[type=radio], .widget select[type=checkbox], .widget select[type=radio] { display: inline-block; width: auto; margin-right: 0.25rem; }
 
 .widget select:not([size]):not([multiple]) { height: calc(2.25rem + 2px); }
+
+/** Footer */
+footer#colophon.site-footer { background-color: #343a40; color: #f8f9fa; position: absolute; bottom: 0; width: 100%; height: 60px; line-height: 60px; }
+
+footer#colophon.site-footer a { color: #fff; }
+
+/** Typography */
+.entry-title { font-weight: 600; }
 
 /*# sourceMappingURL=style.css.map */
