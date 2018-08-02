@@ -1,3 +1,34 @@
+/**
+ * Colors
+ */
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$gray: #6c757d;
+$gray-dark: #343a40;
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+$footer_height: 60;
+/**
+ * Colors End
+ */
+html {position: relative; min-height: 100%; }
+
 body {
 	font-family: Rubik, sans-serif;
 	-ms-word-wrap: break-word;
@@ -19,8 +50,9 @@ a {
 		display: none; 
 	}
 }
+
+
 .site-content {
-	
 } 
 
 .mln-5  { margin-left: -5px; }
@@ -174,18 +206,12 @@ li.comment {
 	}
 	figure {
 		margin-bottom: 1rem;
-		display: table;
-		> * {
-			display: table-cell;
-		}
 	}
 	.wp-caption-text {
 		font-size: smaller;
     	padding: 10px;
     	border: 1px solid #dfe2e7;
     	border-top: 0 none;
-    	display: table-caption; 
-    	caption-side: bottom ;
 	}
 	/**
 	 * Gallery
@@ -352,4 +378,27 @@ li.comment {
 	select:not([size]):not([multiple]) {
 		height: calc(2.25rem + 2px);
 	}
+}
+
+/**
+ * Footer
+ */
+footer#colophon.site-footer{
+	background-color: $dark;
+	color: $light;
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $footer_height + px;
+    line-height: 60px;
+	a {
+		color: $white;
+	}
+}
+
+/**
+ * Typography
+ */
+.entry-title {
+	font-weight: 600;
 }
