@@ -13,14 +13,16 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-			<header class="page-header py-4 mb-5 bg-light border-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12">
-							<?php
-								the_archive_title( '<h1 class="page-title display-4">', '</h1>' );
-								the_archive_description( '<div class="archive-description lead">', '</div>' );
-							?>
+			<header class="page-header mb-5 bg-light border-bottom">
+				<div id="nibble-core-page-title" class="py-4">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<?php
+									the_archive_title( '<h1 class="page-title">', '</h1>' );
+									the_archive_description( '<div class="archive-description lead">', '</div>' );
+								?>
+							</div>
 						</div>
 					</div>
 				</div>

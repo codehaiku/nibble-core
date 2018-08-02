@@ -15,6 +15,15 @@
 get_header();
 $layout = '2';
 ?>
+<div class="py-5 bg-dark">
+	<div class="container text-center text-light">
+		<h1 class="display-4">Welcome to our Community</h1>
+		<p class="lead">You can personalized this area in your theme customizer<br/> or you can disable this area</p>
+		<a class="btn btn-outline-info">See Members</a>
+		<a class="btn btn-outline-primary">Join Groups</a>
+	</div>
+</div>
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12 col-md-12 col-lg-8">
