@@ -38,6 +38,9 @@ if ( ! function_exists( 'nibble_core_setup' ) ) :
 		// Use BuddyPress Nouveau Template Pack.
 		add_theme_support( 'buddypress-use-nouveau' );
 
+		// Add Editor Style.
+		add_editor_style( 'css/custom-editor-style.css' );
+
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
@@ -173,10 +176,9 @@ function nibble_core_google_fonts() {
     Translators: If there are characters in your language that are not supported
     by chosen font(s), translate this to 'off'. Do not translate into your own language.
      */
-    if ( 'off' !== _x( 'on', 'Google font: on or off', 'studio' ) ) {
-    	$headings = "Rubik:400,400i,500,500i";
-    	$body = "";
-    	$fonts = sprintf( '%s|%s', $headings, $body );
+    if ( 'off' !== _x( 'on', 'Google font: on or off', 'nibble-core' ) ) {
+    	$font = "PT+Sans:PT+Sans:400,400i,700";
+    	$fonts = sprintf( '%s', $font );
         $font_url = add_query_arg( 'family', $fonts, "//fonts.googleapis.com/css" );
     }
     return $font_url;
