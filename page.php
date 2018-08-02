@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-<div class="page-header bg-light border-bottom mb-5">
+<div class="page-header bg-light border-bottom mb-4">
 	<div class="container">
 		<div id="page-title" class="py-4">
 			<?php the_title('<h1 class="entry-title mb-0">','</h1>'); ?>
