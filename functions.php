@@ -177,7 +177,7 @@ function nibble_core_google_fonts() {
     by chosen font(s), translate this to 'off'. Do not translate into your own language.
      */
     if ( 'off' !== _x( 'on', 'Google font: on or off', 'nibble-core' ) ) {
-    	$font = "PT+Sans:PT+Sans:400,400i,700";
+    	$font = "Source+Sans+Pro:400,700";
     	$fonts = sprintf( '%s', $font );
         $font_url = add_query_arg( 'family', $fonts, "//fonts.googleapis.com/css" );
     }
