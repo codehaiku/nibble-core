@@ -39,6 +39,16 @@ table td, table th {
     vertical-align: top;
     border-top: 1px solid #dee2e6;
 }
+h2,.h2 {
+	font-size: 2.1rem;
+}
+legend, dt {
+	font-weight: 500;
+}
+dd {
+    margin-bottom: .5rem;
+    margin-left: 1rem;
+}
 .site-title a {
 	color: #38424a;
 }
@@ -150,7 +160,10 @@ a:hover{
 		a {
 			padding: 20px;
 			display: block;
-			font-weight: bold;
+			color: $secondary;
+			&:hover{
+				color: $dark;
+			}
 		}
 	}
 
@@ -189,9 +202,31 @@ li.comment {
  * Contents
  */
 .entry-content {
-	h1,h2,h3,h4,h5,h6{
-		color: #38424a;
+	
+	font-size: 1.15rem;
+	> ul, > ol {
+		padding-left: 1.35rem;
 	}
+	table {
+		border: 1px solid #dfe2e7;
+    	width: 100%;
+    	margin-bottom: 1rem;
+	}
+	fieldset {
+		border: 2px solid $gray;
+    	padding: 1rem 1.5rem;
+    	margin: 0 0 1rem 0;
+    	legend {
+    		display: inline-block;
+		    width: auto;
+		    padding: 0.5rem 1rem;
+		    font-size: 1rem;
+		    background: $light;
+		    color: $dark;
+		    border: 2px solid $gray;
+    	}
+	}
+
 	.alignleft {
 		float: left;
 		margin: 0 1rem 0 0;
@@ -347,8 +382,10 @@ li.comment {
 /**
  * Widgets
  */
+.entry-content,
 .widget {
 	input,
+	textarea,
 	select {
 	    display: block;
 	    width: 100%;
@@ -368,12 +405,20 @@ li.comment {
 		    border-color: #80bdff;
 		    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 	    }
+	    &[type=button],
+	    &[type=submit],
+	    &[type=reset],
 	    &[type=checkbox],
 	    &[type=radio] {
 	    	display: inline-block;
 	    	width: auto;
 	    	margin-right: 0.25rem;
+	    	&:hover {
+	    		cursor: pointer;
+	    	}
 	    }
+
+
 	}
 	select:not([size]):not([multiple]) {
 		height: calc(2.25rem + 2px);
