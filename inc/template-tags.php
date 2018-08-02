@@ -170,16 +170,18 @@ if ( ! function_exists( 'nibble_core_get_user_navigation') ):
 	function nibble_core_get_user_navigation() {
 		?>
 		<!-- Just an image -->
-		<ul class="nav nav-pills float-right">
+		<ul class="nav nav-pills float-lg-right">
 			
 			<li class="nav-item">
 			  <a class="nav-link" href="#">
-			  	<i class="far fa-envelope"></i> Message
+			  	<i class="far fa-envelope fa-lg"></i> 
+			  	<span class="badge badge-pill badge-primary notification-bubble">0</span>
 			  </a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link " href="#">
-			  	<i class="far fa-bell"></i> Notifications
+			  <a class="nav-link" href="#">
+			  	<i class="far fa-bell fa-lg"></i> 
+			  	<span class="badge badge-pill badge-info notification-bubble">0</span>
 			  </a>
 			</li>
 
