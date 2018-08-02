@@ -117,4 +117,4 @@
 
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content border-top">
+	<div id="wrapper" class="site-content border-top">
