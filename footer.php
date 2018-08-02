@@ -12,21 +12,18 @@
 ?>
 
 	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer text-center">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'nibble-core' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'nibble-core' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'nibble-core' ), 'nibble-core', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
+	<footer id="colophon" class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<a href="<?php echo esc_url( get_bloginfo('wpurl') );?>" title="<?php echo esc_attr( get_bloginfo('name') ); ?>">
+						<?php echo sprintf( esc_html__('%s. All Rights Reserved.', 'nibble-core'), get_bloginfo('name') ); ?>
+					</a>
+				</div>
+				<?php do_action('nibble-core-after-site-info-column'); ?>
+			</div>
+		</div>
+		<?php do_action('nibble-core-site-footer-after'); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
