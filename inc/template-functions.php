@@ -48,7 +48,7 @@ function nibble_core_the_password_form() {
     $label = 'pwbox-'.(empty($post->ID) ? rand() : $post->ID);
     $output = '<form action="' . esc_attr( get_option('siteurl') ) . '/wp-login.php?action=postpass" method="post">
     <div class="form-group"><p class="text-info">' . esc_html__("This content is password protected. To view it please enter your password below:", 'nibble-core') . '</p>
-    <p><label for="' . $label . '">' . esc_html__("Password:", 'nibble-core') . '</label> <input class="form-control" name="post_password" id="' . $label . '" type="password" placeholder="'.esc_html__("Type your password here...", 'nibble-core').'" size="20" /></div><!--form-group--><input class="btn btn-outline-success" type="submit" name="Submit" value="' . esc_attr__("Unlock Content") . '" /></p>
+    <p><label for="' . $label . '">' . esc_html__("Password:", 'nibble-core') . '</label> <input class="form-control" name="post_password" id="' . $label . '" type="password" placeholder="'.esc_html__("Type your password here...", 'nibble-core').'" size="20" /></div><!--form-group--><input class="btn btn-outline-success" type="submit" name="Submit" value="' . esc_attr__("Unlock Content", 'nibble-core') . '" /></p>
     </form>';
 
     return $output;
@@ -70,7 +70,7 @@ add_filter('cancel_comment_reply_link', 'nibble_core_get_cancel_comment_reply_li
 function nibble_core_get_cancel_comment_reply_link( $formatted_link, $link, $text ) { 
 
   if ( empty($text) ) {
-      $text = __('Click here to cancel reply.'); 
+      $text = __('Click here to cancel reply.', 'nibble-core'); 
   }
  
   $style = isset($_GET['replytocom']) ? '' : ' style="display:none;"'; 
