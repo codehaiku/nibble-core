@@ -12,7 +12,7 @@ $x = 2;
 ?>
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="align-self-center col-lg-8">
+		<div class="col-lg-8">
 			<div id="primary" class="content-area py-5">
 				<main id="main" class="site-main">
 
