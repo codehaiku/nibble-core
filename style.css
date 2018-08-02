@@ -16,7 +16,9 @@ This theme is community ready with 100% support for bbPress and BuddyPress. Use 
 /** Colors End */
 html { position: relative; min-height: 100%; }
 
-body { font-family: 'PT Sans', sans-serif; -ms-word-wrap: break-word; word-wrap: break-word; }
+@media (max-width: 780px) { html { position: static; } }
+
+body { font-family: 'Source Sans Pro', sans-serif; -ms-word-wrap: break-word; word-wrap: break-word; }
 
 table td, table th { padding: .75rem; vertical-align: top; border-top: 1px solid #dee2e6; }
 
@@ -25,6 +27,11 @@ h2, .h2 { font-size: 2.1rem; }
 legend, dt { font-weight: 500; }
 
 dd { margin-bottom: .5rem; margin-left: 1rem; }
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { font-weight: 600; }
+
+/** Headers */
+.notification-bubble { position: relative; top: -15px; }
 
 .site-title a { color: #38424a; }
 
@@ -49,8 +56,6 @@ a { color: #38424a; }
 .mrn-15 { margin-right: -15px; }
 
 .modal-dialog { margin: 3.75rem auto; }
-
-.widget-body > ul { padding-left: 1.175rem; }
 
 figure, img { height: auto; max-width: 100%; }
 
@@ -179,6 +184,12 @@ li.comment { list-style: none; }
 .entry-content input[type=button]:hover, .entry-content input[type=submit]:hover, .entry-content input[type=reset]:hover, .entry-content input[type=checkbox]:hover, .entry-content input[type=radio]:hover, .entry-content textarea[type=button]:hover, .entry-content textarea[type=submit]:hover, .entry-content textarea[type=reset]:hover, .entry-content textarea[type=checkbox]:hover, .entry-content textarea[type=radio]:hover, .entry-content select[type=button]:hover, .entry-content select[type=submit]:hover, .entry-content select[type=reset]:hover, .entry-content select[type=checkbox]:hover, .entry-content select[type=radio]:hover, .widget input[type=button]:hover, .widget input[type=submit]:hover, .widget input[type=reset]:hover, .widget input[type=checkbox]:hover, .widget input[type=radio]:hover, .widget textarea[type=button]:hover, .widget textarea[type=submit]:hover, .widget textarea[type=reset]:hover, .widget textarea[type=checkbox]:hover, .widget textarea[type=radio]:hover, .widget select[type=button]:hover, .widget select[type=submit]:hover, .widget select[type=reset]:hover, .widget select[type=checkbox]:hover, .widget select[type=radio]:hover { cursor: pointer; }
 
 .entry-content select:not([size]):not([multiple]), .widget select:not([size]):not([multiple]) { height: calc(2.25rem + 2px); }
+
+.widget .widget-body ul { padding-left: 1.175rem; }
+
+.widget.widget_nav_menu { /*Stop at 4th level menu*/ }
+
+.widget.widget_nav_menu ul li ul li ul li ul li ul li ul { padding-left: 0; }
 
 /** Footer */
 footer#colophon.site-footer { background-color: #343a40; color: #f8f9fa; position: absolute; bottom: 0; width: 100%; height: 60px; line-height: 60px; }
