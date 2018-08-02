@@ -22,15 +22,17 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text sr-only" href="#content">
-		<?php esc_html_e( 'Skip to content', 'nibble-core' ); ?></a>
+	
+	<a class="skip-link screen-reader-text sr-only" href="#wrapper">
+		<?php esc_html_e( 'Skip to content', 'nibble-core' ); ?>
+	</a>
 
 	<header id="masthead" class="site-header">
 
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-sm">
-					<div class="site-branding pt-3 pb-3 text-center text-sm-left">
+				<div class="col-lg-6">
+					<div class="site-branding pt-3 pb-3 text-center text-lg-left">
 						<?php
 						the_custom_logo();
 						if ( is_front_page() && is_home() ) :
@@ -56,8 +58,8 @@
 					</div><!-- .site-branding -->
 				</div>
 				<!--Right Actions-->
-				<div class="col-sm mb-4 mb-md-0">
-					<div class="d-flex justify-content-center justify-content-md-end">
+				<div class="col-lg-6 mb-4 mb-sm-4 mb-lg-0">
+					<div class="d-flex justify-content-center justify-content-lg-end">
 						<?php nibble_core_the_user_navigation(); ?>
 					</div>
 				</div>
