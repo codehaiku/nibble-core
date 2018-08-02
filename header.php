@@ -51,7 +51,7 @@
 						$nibble_core_description = get_bloginfo( 'description', 'display' );
 						if ( $nibble_core_description || is_customize_preview() ) :
 							?>
-							<p class="site-description text-secondary"><?php echo $nibble_core_description; /* WPCS: xss ok. */ ?></p>
+							<p class="site-description text-secondary m-0"><?php echo $nibble_core_description; /* WPCS: xss ok. */ ?></p>
 						<?php endif; ?>
 					</div><!-- .site-branding -->
 				</div>
