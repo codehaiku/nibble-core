@@ -65,7 +65,7 @@
 			</div>
 		</div>
 
-		<nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light border-top">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light border-top">
 			<div class="container px-3 px-md-3">
 		  		<a href="#" class="d-lg-none pl-0 btn btn-link disabled navbar-brand">
 		  			<?php esc_html_e('Navigation', 'nibble-core'); ?>
