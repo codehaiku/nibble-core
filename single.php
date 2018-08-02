@@ -8,10 +8,11 @@
  */
 
 get_header();
+$x = 2;
 ?>
 <div class="container">
-	<div class="row">
-		<div class="col-sm-12 col-md-12 col-lg-8">
+	<div class="row justify-content-center">
+		<div class="align-self-center col-lg-8">
 			<div id="primary" class="content-area py-5">
 				<main id="main" class="site-main">
 
@@ -23,7 +24,7 @@ get_header();
 
 					?>
 					<div class="mb-3">
-						<h5 class="text-secondary"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
+						<h5 class="font-weight-light"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
 						<?php the_post_navigation(); ?>
 					</div>
 					<?php
@@ -39,11 +40,13 @@ get_header();
 				</main><!-- #main -->
 			</div><!-- #primary -->
 		</div>
+		<?php if ( $x == 2){ ?>
 		<div class="col-sm-12 col-md-12 col-lg-4">
 			<div class="sidebar py-5">
 				<?php get_sidebar(); ?>
 			</div>
 		</div>
+		<?php } ?>
 	</div>
 </div>
 <?php
