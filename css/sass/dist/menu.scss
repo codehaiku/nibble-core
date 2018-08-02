@@ -25,12 +25,21 @@ $dark: #343a40;
 
 $footer_height: 60;
 /**
+ * 
  * Colors End
  */
-html {position: relative; min-height: 100%; }
+html {
+	position: relative; 
+	min-height: 100%; 
+	@media(max-width: 780px){
+		position: static; 
+	}
+
+}
+
 
 body {
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
@@ -48,6 +57,17 @@ legend, dt {
 dd {
     margin-bottom: .5rem;
     margin-left: 1rem;
+}
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {
+	font-weight: 600;
+}
+
+/**
+ * Headers
+ */
+.notification-bubble {
+	position: relative;
+	top: -15px;
 }
 .site-title a {
 	color: #38424a;
@@ -84,9 +104,7 @@ a {
 	margin: 3.75rem auto;
 }
 
-.widget-body > ul {
-	padding-left: 1.175rem;
-}
+
 figure,
 img {
 	height: auto;
@@ -446,6 +464,18 @@ li.comment {
 	}
 }
 
+.widget {
+	.widget-body  ul{
+		padding-left: 1.175rem;
+	}
+	&.widget_nav_menu {
+		/*Stop at 4th level menu*/
+		ul li ul li ul li ul li ul li ul {
+			padding-left: 0;
+		}
+	}
+}
+
 /**
  * Footer
  */
@@ -468,3 +498,4 @@ footer#colophon.site-footer{
 .entry-title {
 	font-weight: 700;
 }
+
