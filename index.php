@@ -46,7 +46,7 @@ $layout = '2';
 					
 					<?php $has_post_navigation = get_the_posts_navigation(); ?>
 					<?php if ( ! empty( $has_post_navigation ) ): ?>
-						<h5 class="text-secondary"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
+						<h5 class="text-secondary font-weight-light"><?php esc_html_e('Previous/Next Reading', 'nibble-core'); ?></h5>
 						<?php the_posts_navigation(); ?>
 					<?php endif; ?>
 					
