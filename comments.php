@@ -89,7 +89,7 @@ if ( post_password_required() ) {
 			array(
 				'class_submit' => 'btn btn-primary',
 				'comment_field' => apply_filters('nibble_core_comment_field', $comment_field),
-				'must_login' => '<p class="must-log-in text-info">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
+				'must_login' => '<p class="must-log-in text-info">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'nibble-core' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
 				'fields' => apply_filters( 'comment_form_default_fields', $fields )
 			)
 		);
