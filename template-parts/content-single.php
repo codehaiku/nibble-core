@@ -14,7 +14,7 @@
 
 	<header class="entry-header mb-3">
 		
-		<div class="entry-header-meta mb-5">
+		<div class="entry-header-meta mb-4">
 			<!--Title.-->
 			<div class="entry-title border-bottom mb-3 pb-3">
 				<?php the_title( '<h1 class="entry-title mb-0">', '</h1>' ); ?>
@@ -62,7 +62,7 @@
 		<div class="clearfix"></div>
 		<?php
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_nibble_core' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nibble-core' ),
 			'after'  => '</div>',
 		) );
 		?>
