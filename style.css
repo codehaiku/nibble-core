@@ -1,8 +1,22 @@
+/*
+Theme Name: Nibble Core
+Theme URI: http://nibble-core.dunhakdis.com
+Author: Dunhakdis
+Author URI: https://dunhakdis.com
+Description: Nibble core is a community theme with 100% support for bbPress and BuddyPress. This theme features multiple layout design for each post and page with custom color schemes. Use this theme to build Intranet, Extranet, Social Media, and Forums!
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nibble-core
+Tags: buddypress, one-column, two-columns, right-sidebar, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+
+This theme is community ready with 100% support for bbPress and BuddyPress. Use this theme to make something great! Share it with others.
+*/
 /** Colors */
 /** Colors End */
 html { position: relative; min-height: 100%; }
 
-body { font-family: Rubik, sans-serif; -ms-word-wrap: break-word; word-wrap: break-word; }
+body { font-family: 'PT Sans', sans-serif; -ms-word-wrap: break-word; word-wrap: break-word; }
 
 table td, table th { padding: .75rem; vertical-align: top; border-top: 1px solid #dee2e6; }
 
@@ -15,6 +29,8 @@ dd { margin-bottom: .5rem; margin-left: 1rem; }
 .site-title a { color: #38424a; }
 
 a { color: #38424a; }
+
+#wrapper { padding-bottom: 110px; }
 
 .wp-custom-logo .site-title { display: none; }
 
@@ -76,6 +92,10 @@ li.comment { list-style: none; }
 
 .comment-respond form { clear: both; }
 
+.gallery-caption { font-size: small; }
+
+.bypostauthor { padding: 20px; background: #fffeec; border: 1px solid #ffefb4; }
+
 /** Contents */
 .entry-content { font-size: 1.15rem; /** Gallery */ }
 
@@ -99,11 +119,13 @@ li.comment { list-style: none; }
 
 .entry-content .gallery { display: flex; flex-wrap: wrap; }
 
-.entry-content .gallery figure { background: #343a40; text-align: center; padding: 0.25rem; }
+.entry-content .gallery figure { background: #343a40; text-align: center; padding: 0.25rem; position: relative; }
 
 .entry-content .gallery figure img { width: 100%; }
 
-.entry-content .gallery .wp-caption-text { background: #343a40; border: 0 none; color: #f8f9fa; display: none; }
+.entry-content .gallery figure:hover > .wp-caption-text { display: block; }
+
+.entry-content .gallery .wp-caption-text { background: #343a40; border: 0 none; color: #f8f9fa; position: absolute; display: none; z-index: 2000; width: 200px; right: auto; bottom: auto; }
 
 .entry-content .gallery .gallery-item { flex-grow: 1; flex-basis: 23%; max-width: 23%; margin: 1%; }
 
@@ -164,6 +186,6 @@ footer#colophon.site-footer { background-color: #343a40; color: #f8f9fa; positio
 footer#colophon.site-footer a { color: #fff; }
 
 /** Typography */
-.entry-title { font-weight: 600; }
+.entry-title { font-weight: 700; }
 
 /*# sourceMappingURL=style.css.map */
