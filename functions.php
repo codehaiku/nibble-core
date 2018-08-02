@@ -174,7 +174,10 @@ function nibble_core_google_fonts() {
     by chosen font(s), translate this to 'off'. Do not translate into your own language.
      */
     if ( 'off' !== _x( 'on', 'Google font: on or off', 'studio' ) ) {
-        $font_url = add_query_arg( 'family', urlencode( 'Rubik:400,400i,500,500i' ), "//fonts.googleapis.com/css" );
+    	$headings = "Rubik:400,400i,500,500i";
+    	$body = "";
+    	$fonts = sprintf( '%s|%s', $headings, $body );
+        $font_url = add_query_arg( 'family', $fonts, "//fonts.googleapis.com/css" );
     }
     return $font_url;
 }
